@@ -149,27 +149,6 @@ unlayer.registerTool({
           },
           widget: 'image',
         },
-        speakerTitle: {
-          label: 'Speaker Title',
-          defaultValue: 'Speaker Title',
-          widget: 'text',
-        },
-        speakerTitleColor: {
-          label: 'Speaker Title Color',
-          defaultValue: '#000000',
-          widget: 'color_picker',
-        },
-        speakerAbout: {
-          label: 'Speaker Description',
-          defaultValue:
-            'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.',
-          widget: 'rich_text',
-        },
-        speakerEmail: {
-          label: 'Speaker Email',
-          defaultValue: 'speaker@mail.com',
-          widget: 'text',
-        }       
       },
     },
   },
