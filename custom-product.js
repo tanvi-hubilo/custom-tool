@@ -18,6 +18,9 @@ const modalTemplate = function (data) {
           <button class="close" id="modalCloseBtn">&times;</button>
         </div>
         <div class="modal-body">
+        <div>
+        <p>Images List will be here</p>
+        </div>
           <div class="products-list">
             ${productItemsTemplate(data)}
           </div>
