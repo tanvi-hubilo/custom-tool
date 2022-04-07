@@ -72,7 +72,7 @@ const hideModal = function () {
 };
 
 unlayer.registerPropertyEditor({
-  name: "ID",
+  name: "logo_library",
   layout: "bottom",
   Widget: unlayer.createWidget({
     render(value, updateValue, data) {
@@ -130,7 +130,7 @@ unlayer.registerTool({
         logoLibrary: {
           label: 'Add Logo from store',
           defaultValue: '',
-          widget: 'id',
+          widget: 'logo_library',
         },
         logo_image: {
           label: "Logo Image",
