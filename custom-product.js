@@ -133,7 +133,7 @@ unlayer.registerPropertyEditor({
               list.innerHTML = productsListHtml;
             }
           };
-          closeBtn.onclick = hideModal;
+          closeBtn.onclick = hideModal();
         }, 200);
       };
     },
