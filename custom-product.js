@@ -18,7 +18,13 @@ const modalTemplate = function (data) {
           <h3 class="modal-title">Logo List</h3>
           <button class="close" id="modalCloseBtn">&times;</button>
         </div>
-        <div class="modal-body">       
+        <div class="modal-body">
+        <div>
+        <div class="search-box">
+        <p class="form-control" id='search-bar'></p>
+        <p id='search-btn'></p>
+        </div>   
+        </div>
           <div class="products-list">
             ${productItemsTemplate(data)}
           </div>
@@ -133,7 +139,7 @@ unlayer.registerPropertyEditor({
               list.innerHTML = productsListHtml;
             }
           };
-          closeBtn.onclick = hideModal();
+          closeBtn.onclick = hideModal;
         }, 200);
       };
     },
