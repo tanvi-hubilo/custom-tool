@@ -4,9 +4,6 @@ const productItemsTemplate = _.template(`
 <% _.forEach(products, function(item) { %>
   <div class="product-item" id="product-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>" data-email="<%= item.email %>" data-image="<%= item.profile_img %>" data-description="<%= item.about %>" >
   <img src="<%= item.profile_img %>" style="max-height: 150px;min-height: 100px;width: 100%;" />
-//     <h4 style="margin: 8px 0; text-align: left;"><%= item.name %></h4>
-//     <h4 style="margin: 8px 0; text-align: left;"><%= item.email %></h4>
-//     <p style="text-align: left;"><%= item.about %></p>
   </div>
 <% }); %>
 `);
@@ -21,10 +18,6 @@ const modalTemplate = function (data) {
           <button class="close" id="modalCloseBtn">&times;</button>
         </div>
         <div class="modal-body">
-//           <div class="search-box">
-//             <input type="text" class="form-control" placeholder="Search by speaker name" id="search-bar" style="width: 78%" />
-//             <button id="search-btn" class="button" style="width: 20%">Search</button>
-//           </div>
           <div class="products-list">
             ${productItemsTemplate(data)}
           </div>
@@ -42,11 +35,6 @@ const toolTemplate = function (values, isViewer = false) {
     <img src="${
       values.speakerImage.url
     }" style="width: 100%; object-fit: contain; border-top-left-radius: 4px; border-top-right-radius: 4px;" />
-//     <div class="product-card-body" style="padding: 0 16px 16px;text-align: left;">
-//       <h3 style="margin: 12px 0; color: ${values.speakerTitleColor};">${values.speakerTitle}</h3>
-//       <div class="description">${values.speakerAbout}</div>
-//       <h4 style="margin: 12px 0; color: ${values.speakerEmailColor};">${values.speakerEmail}</h4>
-//     </div>
   </div>
   ${isViewer ? modalTemplate({ products: values.data.products }) : ''}`;
 };
@@ -60,24 +48,6 @@ const toolEmailTemplate = function (values, isViewer = false) {
     values?.speakerLibrary?.selected?.id ? values?.speakerLibrary?.selected?.id : ''
   }" cellspacing="0" cellpadding="0" style="position:relative;min-width:0;word-wrap:break-word;background-color:#fff;background-clip:border-box;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;">
       <tbody>
-//         <tr><td width="100%"><img id="${values?.speakerLibrary?.selected?.id}-speakerImage" src="${
-//     values.speakerImage.url
-//   }" style="width: 100%; object-fit: contain; border-top-left-radius: 4px; border-top-right-radius: 4px;" /></td></tr>
-//         <tr><td width="100%"><h3 id="${
-//           values?.speakerLibrary?.selected?.id
-//         }-speakerTitle" style="text-align: left;margin: 8px 0 12px 0; padding: 0 16px; color: ${
-//     values.speakerTitleColor
-//   };">${values.speakerTitle}</h3></td></tr>
-//         <tr><td width="100%"><div id="${
-//           values?.speakerLibrary?.selected?.id
-//         }-speakerAbout" class="description" style="text-align: left;padding: 0 16px; margin: 0 0 12px 0">${
-//     values.speakerAbout
-//   }</div></td></tr>
-//         <tr><td width="100%"><h4 id="${
-//           values?.speakerLibrary?.selected?.id
-//         }-speakerEmail" style="text-align: left;margin: 8px 0 12px 0; padding: 0 16px; color: ${
-//     values.speakerEmailColor
-//   };">${values.speakerEmail}</h4></td></tr>
       </tbody>
     </table>
   `;
