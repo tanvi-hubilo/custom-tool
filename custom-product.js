@@ -21,8 +21,6 @@ const modalTemplate = function (data) {
         <div class="modal-body">
         <div>
         <div class="search-box">
-                     <input type="text" class="form-control" placeholder="Search by speaker name" id="search-bar" style="width: 78%" />
-                    <button id="search-btn" class="button" style="width: 20%">Search</button>
         </div>   
         </div>
           <div class="products-list">
