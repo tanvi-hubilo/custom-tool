@@ -18,11 +18,7 @@ const modalTemplate = function (data) {
           <h3 class="modal-title">Logo List</h3>
           <button class="close" id="modalCloseBtn">&times;</button>
         </div>
-        <div class="modal-body">
-        <div>
-        <div class="search-box">
-        </div>   
-        </div>
+        <div class="modal-body">       
           <div class="products-list">
             ${productItemsTemplate(data)}
           </div>
