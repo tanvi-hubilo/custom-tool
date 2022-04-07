@@ -130,7 +130,7 @@ unlayer.registerTool({
         logoLibrary: {
           label: 'Add Logo from store',
           defaultValue: '',
-          widget: 'logo_library',
+          widget: 'id',
         },
         logo_image: {
           label: "Logo Image",
