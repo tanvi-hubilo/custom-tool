@@ -3,8 +3,8 @@ const editorTemplate =
 
 const productItemsTemplate = _.template(`
 <% _.forEach(products, function(item) { %>
-  <div class="product-item" id="product-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>" data-email="<%= item.email %>" data-image="<%= item.profile_img %>" data-description="<%= item.about %>" >
-  <img src="<%= item.profile_img %>" style="max-height: 150px;min-height: 100px;width: 100%;" />
+  <div class="product-item" id="product-item" data-uuid='<%= item.id %>' data-image="<%= item.img %>" >
+  <img src="<%= item.img %>" style="max-height: 150px;min-height: 100px;width: 100%;" />
   </div>
 <% }); %>
 `);
@@ -50,13 +50,10 @@ const toolEmailTemplate = function (values, isViewer = false) {
   //   console.log('values IMPO', values);
   return `
     <table id="${
-      values?.speakerLibrary?.selected?.id
-        ? values?.speakerLibrary?.selected?.id
+      values?.id
+        ? values?.id
         : ""
-    }" speakerId="${
-    values?.speakerLibrary?.selected?.id
-      ? values?.speakerLibrary?.selected?.id
-      : ""
+    }"
   }" cellspacing="0" cellpadding="0" style="position:relative;min-width:0;word-wrap:break-word;background-color:#fff;background-clip:border-box;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;">
       <tbody>
       </tbody>
@@ -75,7 +72,7 @@ const hideModal = function () {
 };
 
 unlayer.registerPropertyEditor({
-  name: "speaker_library",
+  name: "ID",
   layout: "bottom",
   Widget: unlayer.createWidget({
     render(value, updateValue, data) {
@@ -112,33 +109,7 @@ unlayer.registerPropertyEditor({
             outerBody.click();
           };
           /* Register event listeners for search */
-          const searchBar = document.querySelector("#search-bar");
-          const searchButton = document.querySelector("#search-btn");
           const closeBtn = document.querySelector("#modalCloseBtn");
-          searchButton.onclick = function (e) {
-            const list = document.querySelector(
-              "#product_library_modal .products-list"
-            );
-            let filteredItem;
-            let productsListHtml;
-            if (list && data && data.products) {
-              if (searchBar.value === "") {
-                productsListHtml = productItemsTemplate({
-                  products: data.products,
-                });
-              } else {
-                filteredItem = data.products.filter((item) =>
-                  item.name
-                    .toLowerCase()
-                    .includes(searchBar.value.toLowerCase())
-                );
-                productsListHtml = productItemsTemplate({
-                  products: filteredItem,
-                });
-              }
-              list.innerHTML = productsListHtml;
-            }
-          };
           closeBtn.onclick = hideModal;
         }, 200);
       };
@@ -147,8 +118,8 @@ unlayer.registerPropertyEditor({
 });
 
 unlayer.registerTool({
-  name: "speaker_tool",
-  label: "Speaker",
+  name: "logo_tool",
+  label: "Logo",
   icon: "fa-user-circle",
   supportedDisplayModes: ["web", "email"],
   options: {
@@ -156,13 +127,13 @@ unlayer.registerTool({
       title: "Speaker Content",
       position: 1,
       options: {
-        speakerLibrary: {
-          label: "Add Speaker from store",
+        id: {
+          label: "ID",
           defaultValue: "",
-          widget: "speaker_library",
+          widget: "ID",
         },
-        speakerImage: {
-          label: "Speaker Image",
+        logo_image: {
+          label: "Logo Image",
           defaultValue: {
             url: "https://s3.amazonaws.com/unroll-images-production/projects%2F167%2F1643875820464-188690",
           },
@@ -176,15 +147,11 @@ unlayer.registerTool({
     // Transform the values here
     // We will update selected values in property editor here
     const newValues =
-      name === "speakerLibrary"
+      name === "ID"
         ? {
             ...values,
-            speakerTitle: value.selected.name,
-            speakerEmail: value.selected.email,
-            // speakerPrice: value.selected.price,
-            speakerAbout: value.selected.about,
-            speakerImage: {
-              url: value.selected.profile_img,
+            logo_image: {
+              url: value.selected.img,
             },
           }
         : {
