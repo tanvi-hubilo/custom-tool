@@ -169,12 +169,7 @@ unlayer.registerTool({
           label: 'Speaker Email',
           defaultValue: 'speaker@mail.com',
           widget: 'text',
-        },
-        speakerEmailColor: {
-          label: 'Speaker Email Color',
-          defaultValue: '#34495E',
-          widget: 'color_picker',
-        },
+        }       
       },
     },
   },
