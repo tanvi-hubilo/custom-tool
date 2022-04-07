@@ -21,7 +21,7 @@ const modalTemplate = function (data) {
         <div class="modal-body">
         <div>
         <div class="search-box">
-        <p class="form-control" id='search-bar'></p>
+        <p id='search-bar'></p>
         <p id='search-btn'></p>
         </div>   
         </div>
