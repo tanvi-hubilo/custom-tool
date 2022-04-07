@@ -40,7 +40,7 @@ const modalTemplate = function (data) {
 const toolTemplate = function (values, isViewer = false) {
   return `<div class="product-card" style="position:relative;display:table;min-width:0;word-wrap:break-word;background-color:#fff;background-clip:border-box;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;">
     <img src="${
-      values.speakerImage.url
+      values.logo_image.url
     }" style="width: 100%; object-fit: contain; border-top-left-radius: 4px; border-top-right-radius: 4px;" />
   </div>
   ${isViewer ? modalTemplate({ products: values.data.products }) : ""}`;
@@ -123,14 +123,14 @@ unlayer.registerTool({
   icon: "fa-user-circle",
   supportedDisplayModes: ["web", "email"],
   options: {
-    speakerContent: {
-      title: "Speaker Content",
+    logoContent: {
+      title: "Logo Content",
       position: 1,
       options: {
-        id: {
-          label: "ID",
-          defaultValue: "",
-          widget: "ID",
+        logoLibrary: {
+          label: 'Add Logo from store',
+          defaultValue: '',
+          widget: 'logo_library',
         },
         logo_image: {
           label: "Logo Image",
@@ -147,9 +147,10 @@ unlayer.registerTool({
     // Transform the values here
     // We will update selected values in property editor here
     const newValues =
-      name === "ID"
+      name === "logoLibrary"
         ? {
             ...values,
+            id : value.selected.id,
             logo_image: {
               url: value.selected.img,
             },
