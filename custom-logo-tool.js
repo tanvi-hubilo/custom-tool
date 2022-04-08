@@ -125,7 +125,7 @@ unlayer.registerTool({
   options: {
     logoContent: {
       title: "Logo Content",
-      position: 2,
+      position: 1,
       options: {
         logoLibrary: {
           label: 'Add Logo from store',
