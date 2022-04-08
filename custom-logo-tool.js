@@ -1,8 +1,8 @@
 const editorTemplate =
-  '<button id="addProduct" class="button">Add Logo</button>';
+  '<button id="addLogo" class="button">Add Logo</button>';
 
 const productItemsTemplate = _.template(`
-<% _.forEach(products, function(item) { %>
+<% _.forEach(logos, function(item) { %>
   <div class="product-item" id="product-item" data-uuid='<%= item.id %>' data-image="<%= item.img %>" >
   <img src="<%= item.img %>" style="max-height: 150px;min-height: 100px;width: 100%;" />
   </div>
@@ -43,7 +43,7 @@ const toolTemplate = function (values, isViewer = false) {
       values.logo_image.url
     }" style="width: 100%; object-fit: contain; border-top-left-radius: 4px; border-top-right-radius: 4px;" />
   </div>
-  ${isViewer ? modalTemplate({ products: values.data.products }) : ""}`;
+  ${isViewer ? modalTemplate({ logos: values.data.logos }) : ""}`;
 };
 
 const toolEmailTemplate = function (values, isViewer = false) {
@@ -79,7 +79,7 @@ unlayer.registerPropertyEditor({
       return editorTemplate;
     },
     mount(node, value, updateValue, data) {
-      const addButton = node.querySelector("#addProduct");
+      const addButton = node.querySelector("#addLogo");
       addButton.onclick = function () {
         showModal();
         setTimeout(() => {
@@ -88,9 +88,9 @@ unlayer.registerPropertyEditor({
           if (!selectButton) return;
           selectButton.onclick = function (e) {
             if (e.target.id === "product-item") {
-              // If user clicks on product item
-              // Find selected item from products list
-              const selectedProduct = data.products.find(
+              // If user clicks on logo item
+              // Find selected item from logo list
+              const selectedProduct = data.logos.find(
                 (item) => item.id === parseInt(e.target.dataset.uuid)
               );
               updateValue({ selected: selectedProduct });
@@ -98,13 +98,13 @@ unlayer.registerPropertyEditor({
               // If user click on child of product item (e.g. title, price, image or desctiption)
               const parent = e.target.parentElement;
               if (parent && parent.id !== "product-item") return;
-              const selectedProduct = data.products.find(
+              const selectedProduct = data.logos.find(
                 (item) => item.id === parseInt(parent.dataset.uuid)
               );
               updateValue({ selected: selectedProduct });
             }
             hideModal();
-            // This is a hack to close property editor right bar on selecting an item from products list.
+            // This is a hack to close property editor right bar on selecting an item from logos list.
             const outerBody = document.querySelector("#u_body");
             outerBody.click();
           };
