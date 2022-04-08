@@ -1,9 +1,9 @@
 const editorTemplate =
   '<button id="addLogo" class="button">Add Logo</button>';
 
-const productItemsTemplate = _.template(`
+const logoItemsTemplate = _.template(`
 <% _.forEach(logos, function(item) { %>
-  <div class="product-item" id="product-item" data-uuid='<%= item.id %>' data-image="<%= item.img %>" >
+  <div class="product-item" id="logo-item" data-uuid='<%= item.id %>' data-image="<%= item.img %>" >
   <img src="<%= item.img %>" style="max-height: 150px;min-height: 100px;width: 100%;" />
   </div>
 <% }); %>
@@ -26,7 +26,7 @@ const modalTemplate = function (data) {
         </div>   
         </div>
           <div class="products-list">
-            ${productItemsTemplate(data)}
+            ${logoItemsTemplate(data)}
           </div>
         </div>
         <div class="modal-footer">
@@ -87,7 +87,7 @@ unlayer.registerPropertyEditor({
           const selectButton = document.querySelector(".products-list");
           if (!selectButton) return;
           selectButton.onclick = function (e) {
-            if (e.target.id === "product-item") {
+            if (e.target.id === "logo-item") {
               // If user clicks on logo item
               // Find selected item from logo list
               const selectedProduct = data.logos.find(
@@ -97,7 +97,7 @@ unlayer.registerPropertyEditor({
             } else {
               // If user click on child of product item (e.g. title, price, image or desctiption)
               const parent = e.target.parentElement;
-              if (parent && parent.id !== "product-item") return;
+              if (parent && parent.id !== "logo-item") return;
               const selectedProduct = data.logos.find(
                 (item) => item.id === parseInt(parent.dataset.uuid)
               );
