@@ -11,7 +11,7 @@ const productItemsTemplate = _.template(`
 
 const modalTemplate = function (data) {
   return `
-  <div class="modal" id="product_library_modal">
+  <div class="modal" id="logo_library_modal">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -62,12 +62,12 @@ const toolEmailTemplate = function (values, isViewer = false) {
 };
 
 const showModal = function () {
-  const modal = document.getElementById("product_library_modal");
+  const modal = document.getElementById("logo_library_modal");
   modal.classList.add("show");
 };
 
 const hideModal = function () {
-  const modal = document.getElementById("product_library_modal");
+  const modal = document.getElementById("logo_library_modal");
   modal.classList.remove("show");
 };
 
