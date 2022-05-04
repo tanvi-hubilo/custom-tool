@@ -15,7 +15,7 @@ const modalTemplate = function (data) {
       <div class="modal-content">
         <div class="modal-header">
           <h3 class="modal-title">Logo List</h3>
-          <button class="close" id="modalCloseBtn">&times;</button>
+          <button class="close" id="modalCloseBtnLogo">&times;</button>
         </div>
         <div class="modal-body">
         <div>
@@ -118,7 +118,7 @@ unlayer.registerPropertyEditor({
             outerBody.click();
           };
           /* Register event listeners for search */
-          const closeBtn = document.querySelector('#modalCloseBtn');
+          const closeBtn = document.querySelector('#modalCloseBtnLogo');
           closeBtn.onclick = hideModal;
         }, 200);
       };

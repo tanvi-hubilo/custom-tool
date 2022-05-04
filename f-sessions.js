@@ -104,7 +104,7 @@ const modalTemplate = function (data) {
       <div class="modal-content">
         <div class="modal-header">
           <h3 class="modal-title">Session List</h3>
-          <button class="close" id="modalCloseBtn">&times;</button>
+          <button class="close" id="modalCloseBtnSessions">&times;</button>
         </div>
         <div class="modal-body">
           <div class="search-box">
@@ -255,7 +255,7 @@ unlayer.registerPropertyEditor({
               list.innerHTML = sessionListHtml;
             }
           };
-          const closeBtn = document.querySelector('#modalCloseBtn');
+          const closeBtn = document.querySelector('#modalCloseBtnSessions');
           closeBtn.onclick = hideModal;
         }, 200);
       };
