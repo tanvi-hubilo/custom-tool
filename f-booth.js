@@ -144,7 +144,7 @@ unlayer.registerPropertyEditor({
             }
           };
           const closeBtn = document.querySelector('#modalCloseBtn');
-          closeBtn.onclick = hideModal();
+          closeBtn.onclick = hideModal;
         }, 200);
       };
     },
