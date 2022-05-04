@@ -239,7 +239,6 @@ unlayer.registerPropertyEditor({
           /* Register event listeners for search */
           const searchBar = document.querySelector('#search-bar');
           const searchButton = document.querySelector('#search-btn');
-          const closeBtn = document.querySelector('#modalCloseBtn');
           searchButton.onclick = function (e) {
             const list = document.querySelector('#session_library_modal .sessions-list');
             let filteredItem;
@@ -256,6 +255,7 @@ unlayer.registerPropertyEditor({
               list.innerHTML = sessionListHtml;
             }
           };
+          const closeBtn = document.querySelector('#modalCloseBtn');
           closeBtn.onclick = hideModal;
         }, 200);
       };
